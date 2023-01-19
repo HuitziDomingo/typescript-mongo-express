@@ -2,11 +2,11 @@ version: '3.8'
 
 services: 
 
-  mongo: 
+  db: 
     image: mongo:6
     restart: always
     ports:
-      - 8081:8081
+      - 27017:27017
     environment:
       MONGODB_DATABASE: ${DB_NAME}
     volumes:
