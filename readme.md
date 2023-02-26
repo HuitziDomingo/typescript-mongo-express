@@ -19,7 +19,7 @@ git clone https://github.com/
 yarn 
 ```
 
-3. Clonar archivo ```.en.template``` y renombrarlo a ```.env``` 
+3. Clonar archivo ```.env.template``` y renombrarlo a ```.env``` 
 <br/>
 
 4. Levantar la base de datos

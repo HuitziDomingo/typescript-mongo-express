@@ -2,7 +2,7 @@ import express, { Request, Response } from 'express'
 import cors from 'cors'
 import morgan from 'morgan'
 import pkg from '../package.json'
-import proyect from './routes/proyect.routes'
+import items from './routes/items.routes'
 
 
 const app = express()
@@ -22,6 +22,6 @@ app.get('/', (req: Request, res: Response) => {
 })
 
 
-app.use('/api/v1', proyect)
+app.use('/api/v1', items)
 
 export default app
