@@ -7,7 +7,7 @@ export class Items {
 
     static async createItem({ body }: Request, res: Response) {
         try {
-            let responsseItem = await Item.insertItem(body)
+            let responsseItem = await Item.insertCar(body)
             res.send(responsseItem)
         } catch (error) {
             Errors.handleHttp(res, 'ERROR_GET_ITEM', error)
@@ -15,20 +15,22 @@ export class Items {
     }
 
 
-    static async getItem(req: Request, res: Response) {
+    static async getItems(req: Request, res: Response) {
         try {
-            res.send('Funcionando get')
-
+            let responsseItem = await Item.getCars()
+            res.send(responsseItem)
         } catch (error) {
             Errors.handleHttp(res, 'ERROR_GET_ITEM')
         }
     }
 
 
-    static async getItemsById(req: Request, res: Response) {
+    static async getItemById({ params }: Request, res: Response) {
         try {
-            res.send('Funcionando get')
-
+            let { id } = params
+            console.log(id)
+            let responsseItem = await Item.getCarById(id)
+            res.send(responsseItem)
         } catch (error) {
             Errors.handleHttp(res, 'ERROR_GET_ITEM')
         }
