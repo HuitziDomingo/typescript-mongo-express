@@ -30,6 +30,19 @@ export class Items {
             let { id } = params
             console.log(id)
             let responsseItem = await Item.getCarById(id)
+            let data = responsseItem ? responsseItem : "ITEM_CAR_NOT_FOUND"
+            res.send(data)
+        } catch (error) {
+            Errors.handleHttp(res, 'ERROR_GET_ITEM')
+        }
+    }
+
+
+    static async editItem({ params, body }: Request, res: Response) {
+        try {
+            let { id } = params
+            console.log(id)
+            let responsseItem = await Item.updateCar(id, body)
             res.send(responsseItem)
         } catch (error) {
             Errors.handleHttp(res, 'ERROR_GET_ITEM')
@@ -37,19 +50,11 @@ export class Items {
     }
 
 
-    static async editItem(req: Request, res: Response) {
+    static async deleteItem({ params }: Request, res: Response) {
         try {
-            res.send('Funcionando get')
-
-        } catch (error) {
-            Errors.handleHttp(res, 'ERROR_GET_ITEM')
-        }
-    }
-
-
-    static async deleteItem(req: Request, res: Response) {
-        try {
-            res.send('Funcionando get')
+            let { id } = params
+            let responsseItem = await Item.deleteCar(id)
+            res.send(responsseItem)
 
         } catch (error) {
             Errors.handleHttp(res, 'ERROR_GET_ITEM')

@@ -10,14 +10,27 @@ export class Item {
     }
 
 
-    static async getCars(){
+    static async getCars() {
         let responseInsert = await ItemModel.find({})
         return responseInsert
     }
 
 
-    static async getCarById(item: string){
-        let responseInsert = await ItemModel.findOne({_id: item})
+    static async getCarById(item: string) {
+        let responseInsert = await ItemModel.findOne({ _id: item })
+        return responseInsert
+    }
+
+
+    static async updateCar(item: string, data: Car) {
+        let responseInsert = await ItemModel.findOneAndUpdate({ _id: item }, data, { new: true })
+        return responseInsert
+
+    }
+
+
+    static async deleteCar(item: string) {
+        let responseInsert = await ItemModel.remove({_id: item})
         return responseInsert
     }
 
