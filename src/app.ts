@@ -3,6 +3,7 @@ import cors from 'cors'
 import morgan from 'morgan'
 import pkg from '../package.json'
 import items from './routes/items.routes'
+import auth from './routes/auth.routes'
 
 
 const app = express()
@@ -23,5 +24,6 @@ app.get('/', (req: Request, res: Response) => {
 
 
 app.use('/api/v1', items)
+app.use('/api/v1', auth)
 
 export default app

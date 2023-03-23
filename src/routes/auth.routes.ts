@@ -3,8 +3,8 @@ import { Auth } from "../controllers/Auth.controller"
 
 const router = Router()
 
-router.post('/login', Auth.login)
 router.post('/register', Auth.register)
+router.post('/login', Auth.login)
 
 
 export default router

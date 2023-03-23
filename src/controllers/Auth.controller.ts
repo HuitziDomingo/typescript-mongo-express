@@ -5,7 +5,9 @@ export class Auth {
 
 
     static async register({ body }: Request, res: Response) {
-        // let responseUser = await AuthService.registerNewUser()
+        let responseUser = await AuthService.registerNewUser(body)
+        res.send(responseUser)
+        
     }
 
 
