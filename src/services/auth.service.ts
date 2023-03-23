@@ -2,6 +2,7 @@ import UserModel from '../models/User'
 import { User } from '../interfaces/user.interface'
 import { Bcrypt } from '../utils/bcrypt.handle'
 import { Auth } from '../interfaces/auth.interface'
+import { JWT } from '../utils/jwt.handle'
 
 
 export class AuthService {
@@ -31,7 +32,9 @@ export class AuthService {
 
         if(!isCorrect) return "PASSWORD_INCORRECT"
 
-        return checkIs
+        let token = await JWT.generateToken(checkIs.email)
+        
+        return {checkIs,token}
     }
 
 
