@@ -1,5 +1,7 @@
 import UserModel from '../models/User'
 import { User } from '../interfaces/user.interface'
+import { Bcrypt } from '../utils/bcrypt.handle'
+import { Auth } from '../interfaces/auth.interface'
 
 
 export class AuthService {
@@ -9,12 +11,28 @@ export class AuthService {
         let checkIs = await UserModel.findOne({ email })
         if (checkIs) return "ALREADY_REGISTERED"
 
-        let registerNewUser = await UserModel.create({ email, password, name })
+        let passHash = await Bcrypt.encrypt(password)
+
+        let registerNewUser = await UserModel.create({
+            email,
+            password: passHash,
+            name
+        })
         return registerNewUser
     }
 
 
-    static async loginUser() { }
+    static async loginUser({email, password}: Auth) { 
+        let checkIs = await UserModel.findOne({ email })
+        if (!checkIs) return "NOT_FOUND_USER"
+
+        let passHash = await checkIs.password
+        let isCorrect = await Bcrypt.verify(password,passHash )
+
+        if(!isCorrect) return "PASSWORD_INCORRECT"
+
+        return checkIs
+    }
 
 
 }
