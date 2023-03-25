@@ -5,6 +5,7 @@ import pkg from '../package.json'
 
 import items from './routes/items.routes'
 import auth from './routes/auth.routes'
+import order from './routes/order.routes'
 
 import * as dotenv from 'dotenv';
 
@@ -29,5 +30,6 @@ app.get('/', (req: Request, res: Response) => {
 /* Endpoints de la API */
 app.use('/api/v1', items)
 app.use('/api/v1', auth)
+app.use('/api/v1', order)
 
 export default app

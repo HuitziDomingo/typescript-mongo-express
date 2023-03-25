@@ -34,7 +34,7 @@ export class AuthService {
 
         let token = await JWT.generateToken(checkIs.email)
         
-        return {checkIs,token}
+        return { token, checkIs }
     }
 
 
