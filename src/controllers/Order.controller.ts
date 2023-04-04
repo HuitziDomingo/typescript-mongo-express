@@ -1,4 +1,4 @@
-import {  Response } from "express"
+import { Response } from "express"
 import { Errors } from "../utils/error.handle"
 import { RequestExt } from '../interfaces/requestJWT.interface'
 

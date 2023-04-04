@@ -1,7 +1,6 @@
-import { Request, Response, NextFunction } from 'express';
-import { JwtPayload } from 'jsonwebtoken';
-import { JWT } from '../utils/jwt.handle';
-import { RequestExt } from '../interfaces/requestJWT.interface';
+import { Response, NextFunction } from 'express'
+import { JWT } from '../utils/jwt.handle'
+import { RequestExt } from '../interfaces/requestJWT.interface'
 
 
 export class Session {
