@@ -1,11 +1,8 @@
 import { Request, Response, NextFunction } from 'express';
 import { JwtPayload } from 'jsonwebtoken';
 import { JWT } from '../utils/jwt.handle';
+import { RequestExt } from '../interfaces/requestJWT.interface';
 
-
-interface RequestExt extends Request {
-    user?: string | JwtPayload
-}
 
 export class Session {
 

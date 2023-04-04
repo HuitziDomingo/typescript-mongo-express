@@ -1,11 +1,8 @@
-import { Request, Response } from "express"
-import { JwtPayload } from "jsonwebtoken"
+import {  Response } from "express"
 import { Errors } from "../utils/error.handle"
+import { RequestExt } from '../interfaces/requestJWT.interface'
 
 
-interface RequestExt extends Request {
-    user?: string | JwtPayload
-}
 
 
 export class Order {
