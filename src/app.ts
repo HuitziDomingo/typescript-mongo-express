@@ -7,6 +7,7 @@ import pkg from '../package.json'
 import items from './routes/items.routes'
 import auth from './routes/auth.routes'
 import order from './routes/order.routes'
+import media from './routes/media.routes'
 
 import * as dotenv from 'dotenv';
 
@@ -34,5 +35,6 @@ app.get('/', (req: Request, res: Response) => {
 app.use('/api/v1', items)
 app.use('/api/v1', auth)
 app.use('/api/v1', order)
+app.use('/api/v1', media)
 
 export default app
